@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post {{post.title}}</title>
+</head>
+<body>
+  <a href="{% url 'create_post' %}">Create Post</a>
+  <a href="{% url 'posts' %}">Go back</a>
+  <div style="margin: 0 auto; border: 3px dashed lavender; width: 300px; margin-top: 50px; text-align: center; background-color: red">
+      <p>{{post.author}}</p>
+      <p>{{post.title}}</p>
+      <p>{{post.text}}</p>
+      <p>Likes: {{ post.likes }}</p>
+      <form method="POST" action="{% url 'like_post' post.pk %}">
+        {% csrf_token %}
+        <button type="submit">Like</button>
+      </form>
+  </div>
+</body>
+</html>

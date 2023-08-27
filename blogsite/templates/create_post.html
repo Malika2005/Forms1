@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post</title>
+</head>
+<body>
+  <a href="{% url 'posts' %}">Go back</a>
+  <form method="POST">
+      {%csrf_token%}
+      {{form.as_p}}
+      <input type="submit" value="Submit">
+      <br><br><br>
+      {%for i in posts_%}
+        <p>{{i}}</p>
+      {%endfor%}
+  </form>
+</body>
+</html>
